@@ -3,13 +3,13 @@ source r2d.config
 
 for f in `cat $inputfile`
 do
-	echo $f
+	echo $f": "`basename $f`
 	if [ -e $f ]
 	then
-	echo Exists
+	awk '{print basename $1}' $f
 	else
 	echo NE
 	fi
 done
 
-echo "hi"
+echo "FINISHED"
