@@ -2,9 +2,13 @@
 source r2d.config
 
 function replace {
-#for f in `cat $inputfile`
-#do
-    echo $1
+    echo MATCHES:
+    for f in `cat $inputfile`
+    do
+        echo `echo $1 | sed -e 's_/_\\/_g'`
+        #awk "/$1/ {print \$1;}" $f
+        echo $2
+    done
 }
 
 for f in `cat $inputfile`
@@ -15,12 +19,11 @@ do
     then
     echo cp $f $out$bf
     cp $f $out$bf
+    replace $f $out$bf
     else
     echo NE
     fi
 done
-
-replace there
 
 echo "FINISHED"
 ls ./live
