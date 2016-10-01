@@ -4,9 +4,7 @@ source r2d.config
 function replace {
     for f in `cat $inputfile`
     do
-#echo `echo $1 | sed -e 's_/_\\/_g'`
-echo $1" "$2
-        if [ -e $f ]
+        if [ -f $f ]
         then
             livef=$out`basename $f`
             sed "\_$1_s_$1_$2_" < $livef > $out"tmp"
@@ -15,25 +13,28 @@ echo $1" "$2
     done
 }
 
+echo "Copying to "$out
 for f in `cat $inputfile`
 do
     bf=`basename $f`
-    echo $f": "$bf
-    if [ -e $f ]
+    if [ -f $f ]
     then
     cp $f $out$bf
     else
-    echo NE
+        if [ ! -e $f ]
+        then
+            echo "Missing: "$f
+        fi
     fi
 done
 
-echo MATCHES:
+echo Transforming...
 for f in `cat $inputfile`
 do
     bf=`basename $f`
-    if [ -e $out$bf ]
+    if [ -f $out$bf ]
     then
-        replace $f $out$bf
+        replace $f $bf
     fi
 done
 
