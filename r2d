@@ -1,8 +1,10 @@
 #!/bin/bash
 source r2d.config
 
-function hi {
-    echo "hello"
+function replace {
+#for f in `cat $inputfile`
+#do
+    echo $1
 }
 
 for f in `cat $inputfile`
@@ -18,7 +20,7 @@ do
     fi
 done
 
-hi
+replace there
 
 echo "FINISHED"
 ls ./live
