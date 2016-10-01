@@ -1,5 +1,9 @@
 #!/bin/bash
 source r2d.config
-source r2d.files
+
+for f in `cat $inputfile`
+do
+	echo $f
+done
 
 echo "hi"
