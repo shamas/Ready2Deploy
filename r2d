@@ -1,27 +1,13 @@
 #!/bin/bash
 source r2d.config
 
-function replace {
-    echo MATCHES:
-    for f in `cat $inputfile`
-    do
-#echo `echo $1 | sed -e 's_/_\\/_g'`
-        #awk "/$1/ {print \$1;}" $f
-        echo $2
-    done
-}
-
 for f in `cat $inputfile`
 do
     bf=`basename $f`
     echo $f": "$bf
     if [ -e $f ]
     then
-    echo cp $f $out$bf
     cp $f $out$bf
-    replace $f $out$bf
-    else
-    echo NE
     fi
 done
 
