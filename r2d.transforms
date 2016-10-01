@@ -1,4 +1,4 @@
 #!/bin/bash
 #awk '$0~v' v="./libs/imgur/imgur/build/imgur.min.css" ./live/
-awk '$0~v' v="./test/inp2" ./live/inp2
-
+#awk '$0~v' v="./test/inp2" ./live/inp2
+sed '\_inp2_ s_./test/inp2_./live/inp2_' < ./live/inp2
