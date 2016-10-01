@@ -1,0 +1,5 @@
+#!/bin/bash
+source r2d.config
+source r2d.files
+
+echo "hi"
