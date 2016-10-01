@@ -1,6 +1,10 @@
 #!/bin/bash
 source r2d.config
 
+function hi {
+	echo "hello"
+}
+
 for f in `cat $inputfile`
 do
 	bf=`basename $f`
@@ -9,11 +13,12 @@ do
 	then
 	echo cp $f $out$bf
 	cp $f $out$bf
-	awk '{print basename $1}' $f
 	else
 	echo NE
 	fi
 done
+
+hi
 
 echo "FINISHED"
 ls ./live
