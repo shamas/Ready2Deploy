@@ -9,8 +9,8 @@ echo $1" "$2
         if [ -e $f ]
         then
             livef=$out`basename $f`
-            sed "\_$1_s_$1_$2_" < $livef > ./live/tmp
-            mv ./live/tmp $livef
+            sed "\_$1_s_$1_$2_" < $livef > $out"tmp"
+            mv $out"tmp" $livef
         fi
     done
 }
@@ -38,6 +38,5 @@ do
 done
 
 echo "FINISHED"
-ls ./live
 
 source $tforms
