@@ -4,6 +4,12 @@ source r2d.config
 for f in `cat $inputfile`
 do
 	echo $f
+	if [ -e $f ]
+	then
+	echo Exists
+	else
+	echo NE
+	fi
 done
 
 echo "hi"
