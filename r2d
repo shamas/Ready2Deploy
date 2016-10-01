@@ -9,7 +9,9 @@ function replace {
 #echo $2
         if [ -e $f ]
         then
-            sed "\_$1_s_$1_$2_" < $f
+            livef=$out`basename $f`
+            sed "\_$1_s_$1_$2_" < $livef > ./live/tmp
+            mv ./live/tmp $livef
         fi
     done
 }
