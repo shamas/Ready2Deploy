@@ -1,2 +1,1 @@
 #!/bin/bash
-sed '\_inp2_ s_./test/inp2_./live/inp2_' < ./live/inp2

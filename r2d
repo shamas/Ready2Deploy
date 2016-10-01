@@ -39,3 +39,5 @@ done
 
 echo "FINISHED"
 ls ./live
+
+source $tforms
