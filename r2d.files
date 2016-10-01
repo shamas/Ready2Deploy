@@ -1,5 +1,5 @@
 ./test/inp1
 ./test/inp2
-./test/layer/inp1
-./test/layer/inp3
+./test/layer/inp1.txt
+./test/layer/inp3.js
 ./test/layer/fail

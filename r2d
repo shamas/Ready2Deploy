@@ -3,9 +3,12 @@ source r2d.config
 
 for f in `cat $inputfile`
 do
-	echo $f": "`basename $f`
+	bf=`basename $f`
+	echo $f": "$bf
 	if [ -e $f ]
 	then
+	echo cp $f $out$bf
+	cp $f $out$bf
 	awk '{print basename $1}' $f
 	else
 	echo NE
@@ -13,3 +16,4 @@ do
 done
 
 echo "FINISHED"
+ls ./live
