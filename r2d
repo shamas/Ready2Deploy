@@ -1,6 +1,19 @@
 #!/bin/bash
 source r2d.config
 
+function replace {
+    echo MATCHES:
+    for f in `cat $inputfile`
+    do
+#echo `echo $1 | sed -e 's_/_\\/_g'`
+#echo $2
+        if [ -e $f ]
+        then
+            sed "\_$1_s_$1_$2_" < $f
+        fi
+    done
+}
+
 for f in `cat $inputfile`
 do
     bf=`basename $f`
@@ -8,6 +21,7 @@ do
     if [ -e $f ]
     then
     cp $f $out$bf
+    replace $f $out$bf
     fi
 done
 
