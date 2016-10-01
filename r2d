@@ -3,6 +3,7 @@ source r2d.config
 
 if [ ! -d $out ]
 then
+    echo "Making directory "$out
     mkdir $out
 fi
 
