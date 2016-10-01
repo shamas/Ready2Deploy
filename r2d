@@ -1,6 +1,11 @@
 #!/bin/bash
 source r2d.config
 
+if [ ! -d $out ]
+then
+    mkdir $out
+fi
+
 function replace {
     for f in `cat $inputfile`
     do
