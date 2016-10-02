@@ -12,13 +12,10 @@ function doreplacements {
     do
         if [ -f $f ]
         then
-            echo "F: "$f
             bf=`basename $f`
-            echo "R: "$bf
             count=`sed -n "\_[\w\./]*"$bf"_p" < $1 | wc -L`
             if [ $count -gt 0 ]
             then
-                echo "Procesing for matches"
                 sed "\_"$bf"_s_[a-z\.0-9A-Z\/]*"$bf"_"$bf"_" < $1 > $out"tmp"
                 mv $out"tmp" $1
             fi
