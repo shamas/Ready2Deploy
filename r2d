@@ -16,8 +16,8 @@ function doreplacements {
             bf=`basename $f`
             echo "R: "$bf
 #sed "\_"$bf"_s_[\w\./]*"$bf"_"$bf"_" < $1
-#sed -n "\_[\w\./]*"$bf"_p" < $1
-sed -n "\_[\w\./]*"$bf"_s_3_5_p" < $1
+sed -n "\_[\w\./]*"$bf"_p" < $1
+sed -n "\_[\w\./]*"$bf"_s_[\w\./]*"$bf"_5_p" < $1
 #mv $out"tmp" $livef
         fi
     done
