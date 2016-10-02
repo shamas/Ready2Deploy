@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 source r2d.config
 
 if [ ! -d $out ]
@@ -7,14 +7,18 @@ then
     mkdir $out
 fi
 
-function replace {
+function doreplacements {
     for f in `cat $inputfile`
     do
         if [ -f $f ]
         then
-            livef=$out`basename $f`
-            sed "\_$1_s_$1_$2_" < $livef > $out"tmp"
-            mv $out"tmp" $livef
+            echo "F: "$f
+            bf=`basename $f`
+            echo "R: "$bf
+#sed "\_"$bf"_s_[\w\./]*"$bf"_"$bf"_" < $1
+sed -n "\_[\w\./]*"$bf"_p" < $1
+#sed -n "\_[\w\./]*"$bf"_s_3_5_p" < $1
+#mv $out"tmp" $livef
         fi
     done
 }
@@ -35,12 +39,12 @@ do
 done
 
 echo Transforming...
-for f in `cat $inputfile`
+for f in `ls $out`
 do
-    bf=`basename $f`
-    if [ -f $out$bf ]
+    if [ -f $out$f ]
     then
-        replace $f $bf
+	    echo "Processing "$f
+        doreplacements $out$f
     fi
 done
 

@@ -1,1 +1,1 @@
-fin test
+fin(../inp1) test
