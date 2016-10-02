@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 source r2d.config
 
+here=`pwd`
+cd $rootdir
+
 if [ ! -d $out ]
 then
     echo "Making directory "$out
@@ -8,7 +11,7 @@ then
 fi
 
 function doreplacements {
-    for f in `cat $inputfile`
+    for f in `cat $here/$inputfile`
     do
         if [ -f $f ]
         then
@@ -24,7 +27,7 @@ function doreplacements {
 }
 
 echo "Copying to "$out
-for f in `cat $inputfile`
+for f in `cat $here/$inputfile`
 do
     bf=`basename $f`
     if [ -f $f ]
@@ -51,4 +54,4 @@ done
 
 echo "FINISHED"
 
-source $tforms
+source $here/$tforms
