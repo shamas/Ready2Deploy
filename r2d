@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+here="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $here
 source r2d.config
 
-here=`pwd`
 cd $rootdir
 
 if [ ! -d $out ]
