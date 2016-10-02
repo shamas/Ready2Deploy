@@ -1,5 +1,6 @@
 ./test/inp1
 ./test/inp2
 ./test/layer/inp1
-workds ./test/layer/inp3.js here too
+workds ./test/layer/inp3.j here too
+workds (./test/lATEr/inp3.js' here too
 ./test/layer/fail

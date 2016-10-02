@@ -19,9 +19,9 @@ function doreplacements {
             if [ $count -gt 0 ]
             then
                 echo "Procesing for matches"
-                sed -n "\_"$bf"_s_[a-z\.0-9A-Z\/]*"$bf"_"$bf"_p" < $1
+                sed "\_"$bf"_s_[a-z\.0-9A-Z\/]*"$bf"_"$bf"_" < $1 > $out"tmp"
+                mv $out"tmp" $1
             fi
-            #mv $out"tmp" $livef
         fi
     done
 }
@@ -42,7 +42,8 @@ do
 done
 
 echo Transforming...
-for f in `ls $out`
+flist=`ls $out`
+for f in $flist
 do
     if [ -f $out$f ]
     then
