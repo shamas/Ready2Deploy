@@ -3,10 +3,11 @@ A quick collection of scripts I've compiled to put all files into one place prio
 
 # Usage
 This is built to be used in linux
+
 1. Copy the contents to somewhere where you can execute them
 2. Edit r2d.config to have the correct directory
 3. Edit r2d.files to have the files you wish to include. The wildcard `*` works fine.
 4. Run ./r2d
 
 - All your files will be sitting in the $out directory, as defined.
-- All occurances of the filenames in the files moved will have been replaced to the directory on the same level.
+- All absolute and relative references to moved filenames within the files themselves, will be changed to reflect the new file location.
